@@ -35,7 +35,7 @@ iframe {
     border: none;
 }
 
-@media only screen and (max-width: 574px) {
+@media only screen and (max-width: 1024px) {
     #report-container {
         height: calc(0.5625 * 100vw); /* 16:9 aspect ratio */
     }

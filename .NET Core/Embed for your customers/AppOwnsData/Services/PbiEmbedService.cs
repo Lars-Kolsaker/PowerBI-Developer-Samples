@@ -42,9 +42,12 @@ namespace AppOwnsData.Services
         {
             PowerBIClient pbiClient = this.GetPowerBIClient();
 
-            // Get report info
-            var pbiReport = pbiClient.Reports.GetReportInGroup(workspaceId, reportId);
+            var reports = pbiClient.Reports.GetReports(workspaceId);
 
+            // Get report info
+            var pbiReport = pbiClient.Reports.GetReportInGroup(workspaceId, reports.Value.First().Id);
+
+            //
             // Create list of datasets
             var datasetIds = new List<Guid>();
 
@@ -66,7 +69,7 @@ namespace AppOwnsData.Services
             };
 
             // Get Embed token multiple resources
-            var embedToken = GetEmbedToken(reportId, datasetIds, workspaceId);
+            var embedToken = GetEmbedToken(reports.Value.First().Id, datasetIds, workspaceId);
 
             // Capture embed params
             var embedParams = new EmbedParams

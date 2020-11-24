@@ -21,13 +21,11 @@ $(function () {
                 accessToken: embedData.EmbedToken.Token,
                 // You can embed different reports as per your need
                 embedUrl: embedData.EmbedReport[0].EmbedUrl,
-
                 // Enable this setting to remove gray shoulders from embedded report
                 // settings: {
                 //     background: models.BackgroundType.Transparent
                 // }
             };
-
             // Use the token expiry to regenerate Embed token for seamless end user experience
             // Refer https://aka.ms/RefreshEmbedToken
             tokenExpiry = embedData.EmbedToken.Expiration;
